@@ -13,7 +13,7 @@ namespace RankingHoteli.Models
 
         public int UserID { get; set; }
 
-        public int HetelID { get; set; }
+        public int HotelID { get; set; }
 
         [Required]
         public string Content { get; set; }
@@ -28,8 +28,6 @@ namespace RankingHoteli.Models
         public int ServiceGrade { get; set; }
 
         public int RoomGrade { get; set; }
-
-        public virtual Hotel Hotel { get; set; }
 
         public virtual User User { get; set; }
     }

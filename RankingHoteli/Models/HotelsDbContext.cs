@@ -19,17 +19,6 @@ namespace RankingHoteli.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Hotel>()
-                .HasMany(e => e.Opinions)
-                .WithRequired(e => e.Hotel)
-                .HasForeignKey(e => e.HetelID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Picture>()
-                .HasMany(e => e.Hotels)
-                .WithRequired(e => e.Picture)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Opinions)
                 .WithRequired(e => e.User)

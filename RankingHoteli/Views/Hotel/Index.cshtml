@@ -1,4 +1,4 @@
-﻿@model List<RankingHoteli.Models.Hotel>
+﻿@model IEnumerable<RankingHoteli.ViewModels.HotelListViewModel>
 @{
     ViewBag.Title = "Ranking Hoteli";
 }
@@ -20,6 +20,9 @@
             <th>
                 Cena
             </th>
+            <th>
+                Zdjęcie
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -32,10 +35,13 @@
                     @item.Address
                 </td>
                 <td>
-                    @item.Descritpion
+                    @item.Description
                 </td>
                 <td>
                     @item.Price
+                </td>
+                <td>
+                    <img src="~/Content/Photos/@item.Picture" />
                 </td>
             </tr>
         }

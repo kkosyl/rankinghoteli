@@ -9,14 +9,7 @@ namespace RankingHoteli.Models
     [Table("Hotel")]
     public partial class Hotel
     {
-        public Hotel()
-        {
-            Opinions = new HashSet<Opinion>();
-        }
-
         public int HotelID { get; set; }
-
-        public int PictureID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -31,9 +24,5 @@ namespace RankingHoteli.Models
         public string Descritpion { get; set; }
 
         public decimal? Price { get; set; }
-
-        public virtual Picture Picture { get; set; }
-
-        public virtual ICollection<Opinion> Opinions { get; set; }
     }
 }

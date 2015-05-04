@@ -1,4 +1,4 @@
-﻿@model RankingHoteli.ViewModels.HotelViewModel.AddHotelViewModel
+﻿@model RankingHoteli.ViewModels.AddHotelViewModel
 
 @{
     ViewBag.Title = "Dodaj";
@@ -6,7 +6,7 @@
 
 <h2>Dodaj swój hotel</h2>
 
-@using (Html.BeginForm("AddHotel", "Hotel"))
+@using (Html.BeginForm("AddHotel", "Hotel", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -33,8 +33,8 @@
                 <br />
 
 
-                @Html.LabelFor(m => m.Photo)
-                <input type="file" name="photo"/>
+                @Html.LabelFor(m => m.Picture)
+                @Html.TextBoxFor(m => m.Picture, new { type = "file" })
                 <br />
             </div>
             <div class="col-md-offset-2 col-md-10">

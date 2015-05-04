@@ -9,17 +9,12 @@ namespace RankingHoteli.Models
     [Table("Picture")]
     public partial class Picture
     {
-        public Picture()
-        {
-            Hotels = new HashSet<Hotel>();
-        }
-
         public int PictureID { get; set; }
+
+        public int HotelID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Source { get; set; }
-
-        public virtual ICollection<Hotel> Hotels { get; set; }
     }
 }
