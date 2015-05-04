@@ -1,0 +1,43 @@
+﻿@model List<RankingHoteli.Models.Hotel>
+@{
+    ViewBag.Title = "Ranking Hoteli";
+}
+
+<h2>Spis</h2>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>
+                Nazwa Hotelu
+            </th>
+            <th>
+                Adres
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Cena
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Address
+                </td>
+                <td>
+                    @item.Descritpion
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </table>
+</div>

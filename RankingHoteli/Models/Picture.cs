@@ -11,16 +11,15 @@ namespace RankingHoteli.Models
     {
         public Picture()
         {
-            Hotel = new HashSet<Hotel>();
+            Hotels = new HashSet<Hotel>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PictureID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Source { get; set; }
 
-        public virtual ICollection<Hotel> Hotel { get; set; }
+        public virtual ICollection<Hotel> Hotels { get; set; }
     }
 }

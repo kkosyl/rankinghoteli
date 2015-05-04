@@ -11,13 +11,12 @@ namespace RankingHoteli.Models
     {
         public Hotel()
         {
-            Opinion = new HashSet<Opinion>();
+            Opinions = new HashSet<Opinion>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int HotelID { get; set; }
 
-        public int? PictureID { get; set; }
+        public int PictureID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -35,6 +34,6 @@ namespace RankingHoteli.Models
 
         public virtual Picture Picture { get; set; }
 
-        public virtual ICollection<Opinion> Opinion { get; set; }
+        public virtual ICollection<Opinion> Opinions { get; set; }
     }
 }

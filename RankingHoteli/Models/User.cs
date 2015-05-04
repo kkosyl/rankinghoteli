@@ -11,10 +11,9 @@ namespace RankingHoteli.Models
     {
         public User()
         {
-            Opinion = new HashSet<Opinion>();
+            Opinions = new HashSet<Opinion>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserID { get; set; }
 
         [Required]
@@ -25,6 +24,6 @@ namespace RankingHoteli.Models
         [StringLength(20)]
         public string Email { get; set; }
 
-        public virtual ICollection<Opinion> Opinion { get; set; }
+        public virtual ICollection<Opinion> Opinions { get; set; }
     }
 }

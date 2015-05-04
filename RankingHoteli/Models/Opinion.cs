@@ -9,7 +9,6 @@ namespace RankingHoteli.Models
     [Table("Opinion")]
     public partial class Opinion
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int OpinionID { get; set; }
 
         public int UserID { get; set; }
