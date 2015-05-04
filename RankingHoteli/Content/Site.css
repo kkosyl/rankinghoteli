@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -7,6 +7,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    display: inline-block;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -15,4 +16,38 @@ select,
 textarea {
     max-width: 280px;
 }
+.Top {
+    height: 230px;
+    background-color: #ffd800;
+}
 
+    .Top #Logo {
+        margin-top: 10px;
+        margin-left: 100px;
+        display: inline-block;
+        float: left;
+    }
+
+    .Top #Search {
+        margin-top: 70px;
+        margin-left: 150px;
+        display: inline-block;
+        width: 500px;
+    }
+
+        .Top #Search #search {
+            width: 330px;
+            height: 40px;
+        }
+
+        .Top #Search #btnSearch {
+            margin-left: 30px;
+            height: 40px;
+            width: 150px;
+            border: none;
+            background-color: #ff9c00;
+            font-family: Arial;
+            text-align: center;
+            font-size: 25px;
+            
+        }
