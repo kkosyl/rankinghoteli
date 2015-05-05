@@ -90,14 +90,18 @@ namespace RankingHoteli.Controllers
 
                     int hotelId = _dbContext.Hotels.First(h => h.Name == model.Name).HotelID;
 
-                    string filePath = Path.GetFileNameWithoutExtension(model.Picture.FileName) +
-                                               id + Path.GetExtension(model.Picture.FileName);
-                    string path = Path.Combine(Server.MapPath("~/Content/Photos/"), filePath);
-                    model.Picture.SaveAs(path);
+                    foreach (var item in model.Picture)
+                    {
+                        string filePath = Path.GetFileNameWithoutExtension(item.FileName) +
+                                               id + Path.GetExtension(item.FileName);
+                        string path = Path.Combine(Server.MapPath("~/Content/Photos/"), filePath);
+                        item.SaveAs(path);
 
-                    _dbContext.Pictures.Add(new Picture { Source = filePath, HotelID = hotelId });
-                    _dbContext.SaveChanges();
-                    int picId = _dbContext.Pictures.First(p => p.Source == filePath).PictureID;
+                        _dbContext.Pictures.Add(new Picture { Source = filePath, HotelID = hotelId });
+                        _dbContext.SaveChanges();
+                    }
+                    
+                    //int picId = _dbContext.Pictures.First(p => p.Source == filePath).PictureID;
 
                     return RedirectToAction("Index");
                 }

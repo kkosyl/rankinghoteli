@@ -29,6 +29,11 @@ namespace RankingHoteli.ViewModels
 
     public class AddHotelViewModel
     {
+        public AddHotelViewModel()
+        {
+            Picture = new List<HttpPostedFileBase>();
+        }
+
         [Required]
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
@@ -46,7 +51,7 @@ namespace RankingHoteli.ViewModels
 
         [Required]
         [Display(Name = "Zdjęcie")]
-        public HttpPostedFileBase Picture { get; set; }
+        public IEnumerable<HttpPostedFileBase> Picture { get; set; }
     }
 
     public class HotelDetailsViewModel
