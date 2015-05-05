@@ -1,0 +1,33 @@
+﻿@model RankingHoteli.ViewModels.HotelDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+@Model.Name
+<br />
+@Model.Address
+<br />
+@Model.Description
+<br />
+@if (Model.Price != null)
+{
+    @Model.Price
+}
+<br />
+@Model.Address
+<br />
+@foreach (var item in Model.Picture)
+{
+    <img src="~/Content/Photos/@item"/>
+}
+
+<br />
+@*@foreach (var item in Model.Opinions)
+{
+    @item.Key
+    <br />
+    item.Value.
+}*@

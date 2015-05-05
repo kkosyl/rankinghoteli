@@ -5,9 +5,14 @@
 
 <h2>Spis</h2>
 
+@Html.ActionLink("Dodaj", "AddHotel")
+
 <div class="table">
     <table>
         <tr>
+            <th>
+                Zdjęcie
+            </th>
             <th>
                 Nazwa Hotelu
             </th>
@@ -21,29 +26,34 @@
                 Cena
             </th>
             <th>
-                Zdjęcie
+                Opcje
             </th>
         </tr>
-
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Address
-                </td>
-                <td>
-                    @item.Description
-                </td>
-                <td>
-                    @item.Price
-                </td>
-                <td>
-                    <img src="~/Content/Photos/@item.Picture" />
-                </td>
-            </tr>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Content/Photos/@item.Picture" style="height: 150px"/>
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.Name, "Details", new { id = item.HotelId})
+                    </td>
+                    <td>
+                        @item.Address
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>
+                        @Html.ActionLink("Usuń", "Delete", new { id = item.HotelId })
+                    </td>
+                </tr>
+            }
         }
     </table>
 </div>
