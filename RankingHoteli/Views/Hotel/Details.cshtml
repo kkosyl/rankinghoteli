@@ -1,31 +1,78 @@
-﻿@model RankingHoteli.ViewModels.HotelDetailsViewModel
+﻿@model RankingHoteli.ViewModels.AddOpinionAndShowDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
+<h2>@Model.Hotel.Name</h2>
+<div>
+    @Html.ActionLink("Wróć", "Index")
+</div>
 
 
-@Model.Address
+@Model.Hotel.Address
 <br />
-@Model.Description
+@Model.Hotel.Description
 <br />
-@if (Model.Price != null)
+@if (Model.Hotel.Price != null)
 {
-    @Model.Price
+    @Model.Hotel.Price
 }
 <br />
-@foreach (var item in Model.Picture)
+@foreach (var item in Model.Hotel.Picture)
 {
-    <img src="~/Content/Photos/@item" style="height:auto; width:auto; max-height:600px; max-width:600px"/>
+    <img src="~/Content/Photos/@item" style="height:auto; width:auto; max-height:600px; max-width:600px" />
     <br />
 }
 
 <br />
-@*@foreach (var item in Model.Opinions)
+@if (Model.Hotel.Opinions != null)
 {
-    @item.Key
-    <br />
-    item.Value.
-}*@
+    foreach (var item in Model.Hotel.Opinions)
+    {
+        @item.Key
+        <br />
+        @item.Value.FoodGrade
+        <br />
+        @item.Value.LocationGrade
+        <br />
+        @item.Value.RoomGrade
+        <br />
+        @item.Value.ServiceGrade
+        <br />
+        @item.Value.Content
+    }
+}
+
+<div>
+    @using (Html.BeginForm("AddOpinion", "Hotel", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-lg-3">
+                    @Html.LabelFor(m => m.Opinion.Nick)
+                    @Html.TextBoxFor(m => m.Opinion.Nick)
+
+                    <br />
+
+                    @Html.LabelFor(m => m.Opinion.Email)
+                    @Html.TextBoxFor(m => m.Opinion.Email)
+
+                    <br />
+
+                    @Html.LabelFor(m => m.Opinion.Content)
+                    @Html.TextAreaFor(m => m.Opinion.Content)
+                    <br />
+
+                    <br />
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -38,7 +38,9 @@ namespace RankingHoteli.Controllers
         public ActionResult Details(int id)
         {
             Hotel hotel = _dbContext.Hotels.Find(id);
-            HotelDetailsViewModel model = new HotelDetailsViewModel
+            AddOpinionAndShowDetailsViewModel model = new AddOpinionAndShowDetailsViewModel();
+            model.Opinion = new AddOpinionViewModel();
+            model.Hotel = new HotelDetailsViewModel
             {
                 Address = hotel.Address,
                 Description = hotel.Descritpion,
@@ -46,20 +48,25 @@ namespace RankingHoteli.Controllers
                 Price = hotel.Price,
                 HotelId = id
             };
-            model.Opinions = new List<KeyValuePair<string, Opinion>>();
-            model.Picture = new List<string>();
+            model.Hotel.Opinions = new List<KeyValuePair<string, Opinion>>();
+            model.Hotel.Picture = new List<string>();
 
             var picturesPath = _dbContext.Pictures.Where(p => p.HotelID == id).Select(p => p.Source);
             foreach (var item in picturesPath)
-                model.Picture.Add(item);
+                model.Hotel.Picture.Add(item);
 
             var opinions = _dbContext.Opinions.Where(o => o.HotelID == id).Select(o => o);
             foreach (var item in opinions)
             {
                 string user = _dbContext.Users.First(u => u.UserID == item.UserID).Nick;
-                model.Opinions.Add(new KeyValuePair<string, Opinion>(user, item));
+                model.Hotel.Opinions.Add(new KeyValuePair<string, Opinion>(user, item));
             }
             return View(model);
+        }
+
+        public ActionResult AddOpinion(AddOpinionAndShowDetailsViewModel model)
+        {
+            return View();
         }
 
         [HttpGet]
