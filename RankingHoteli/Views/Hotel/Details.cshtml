@@ -45,7 +45,7 @@
 }
 
 <div>
-    @using (Html.BeginForm("AddOpinion", "Hotel", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("AddOpinion", "Hotel", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Hotel.HotelId }))
     {
         @Html.AntiForgeryToken()
 

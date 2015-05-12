@@ -120,7 +120,11 @@
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\HotelViewModel.cs" />
+    <Compile Include="ViewModels\AddHotelViewModel.cs" />
+    <Compile Include="ViewModels\AddOpinionAndShowDetailsViewModel.cs" />
+    <Compile Include="ViewModels\AddOpinionViewModel.cs" />
+    <Compile Include="ViewModels\HotelDetailsViewModel.cs" />
+    <Compile Include="ViewModels\HotelListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

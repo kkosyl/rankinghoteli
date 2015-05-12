@@ -66,7 +66,7 @@ namespace RankingHoteli.Controllers
 
         public ActionResult AddOpinion(AddOpinionAndShowDetailsViewModel model)
         {
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -80,41 +80,44 @@ namespace RankingHoteli.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                if (!_dbContext.Hotels.Any(h => h.Name == model.Name))
                 {
-                    _dbContext.Hotels.Add(new Hotel
+                    try
                     {
-                        Address = model.Address,
-                        Name = model.Name,
-                        Price = model.Price,
-                        Descritpion = model.Description,
-                    });
-                    _dbContext.SaveChanges();
-
-                    int id = 1;
-                    if (_dbContext.Pictures.Max(s => (int?)s.PictureID) != null)
-                        id = _dbContext.Pictures.Max(s => s.PictureID) + 1;
-
-                    int hotelId = _dbContext.Hotels.First(h => h.Name == model.Name).HotelID;
-
-                    foreach (var item in model.Picture)
-                    {
-                        string filePath = Path.GetFileNameWithoutExtension(item.FileName) +
-                                               id + Path.GetExtension(item.FileName);
-                        string path = Path.Combine(Server.MapPath("~/Content/Photos/"), filePath);
-                        item.SaveAs(path);
-
-                        _dbContext.Pictures.Add(new Picture { Source = filePath, HotelID = hotelId });
+                        _dbContext.Hotels.Add(new Hotel
+                        {
+                            Address = model.Address,
+                            Name = model.Name,
+                            Price = model.Price,
+                            Descritpion = model.Description,
+                        });
                         _dbContext.SaveChanges();
-                    }
-                    
-                    //int picId = _dbContext.Pictures.First(p => p.Source == filePath).PictureID;
 
-                    return RedirectToAction("Index");
-                }
-                catch (Exception)
-                {
-                    throw;
+                        int id = 1;
+                        if (_dbContext.Pictures.Max(s => (int?)s.PictureID) != null)
+                            id = _dbContext.Pictures.Max(s => s.PictureID) + 1;
+
+                        int hotelId = _dbContext.Hotels.First(h => h.Name == model.Name).HotelID;
+
+                        foreach (var item in model.Picture)
+                        {
+                            string filePath = Path.GetFileNameWithoutExtension(item.FileName) +
+                                                   id + Path.GetExtension(item.FileName);
+                            string path = Path.Combine(Server.MapPath("~/Content/Photos/"), filePath);
+                            item.SaveAs(path);
+
+                            _dbContext.Pictures.Add(new Picture { Source = filePath, HotelID = hotelId });
+                            _dbContext.SaveChanges();
+                        }
+
+                        //int picId = _dbContext.Pictures.First(p => p.Source == filePath).PictureID;
+
+                        return RedirectToAction("Index");
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                 }
 
             }
