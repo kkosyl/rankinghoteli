@@ -7,26 +7,45 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    
 </head>
+
+
+
+
+
 <body>
    
-    @*<div class="Top">
-        <div id="Logo" class="col-md-4 col-sm-1">
-            <img src="~/Content/Images/Logo.png" />
+    <div class="wrap">
+        <div class="header">
+            <div class="logo"><a href="~/Hotel/Index"><img src="~/Content/Images/Logo.png" /></a></div>
+            <div class="clear"> </div>
         </div>
-        <div id="Search" class="col-md-8 col-sm-1">
-            <input id="search" type="text" />
-            <button id="btnSearch" type="button" value="Szukaj"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-        </div>
-    </div>*@
 
-    <div class="container body-content col-lg-12 col-sm-1">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <div class="top-menu">
+            <ul>
+                <li class="active"><a href="~/Hotel/Index">Home</a></li>
+                <li><a href="~/Hotel/AddHotel">Dodaj hotel</a></li>
+                <li><a href="~/Hotel/Top10">Top 10</a></li>
+                <li><a href="~/Hotel/Search">Wyszukaj</a></li>
+                <input id="inputSearch" type="text" placeholder="Podaj nazwę lub adres" />
+                <div class="clear"> </div>
+            </ul>
+        </div>
+
+        <div class="content">
+
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                
+        </div>
     </div>
+
+        <div class="footer">
+            <img src="~/Content/Images/map-png.png"/>
+        </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

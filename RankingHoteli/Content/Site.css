@@ -1,53 +1,216 @@
-﻿body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+﻿/*FONTS*/
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Roboto-MediumItalic';
+    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+
+
+
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
     display: inline-block;
+    padding-top: 30px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
-.Top {
-    height: 230px;
-    background-color: #ffd800;
+}*/
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
 
-    .Top #Logo {
-        margin-top: 10px;
-        margin-left: 100px;
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border-color: #16A2A2 !important;
+}
+
+html, body {
+    font-family: "Arial" serif;
+    background: #5F6D6B !important;
+}
+
+.wrap {
+    width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px;
+}
+
+
+.header {
+    background: #424242;
+    padding: 39px 18px;
+    height: 150px;
+}
+
+.logo {
+    float: left;
+}
+
+
+/*-----Menu-----*/
+.top-menu {
+    background: #118085;
+    font-family: Roboto-Light, sans-serif;
+    display: inline-block;
+    width: 100%;
+}
+
+    .top-menu ul li {
         display: inline-block;
+        width: 121px;
         float: left;
+        text-align: center;
+        border-right: 1px solid #0BA2A2;
+        border-left: 1px solid #065158;
     }
 
-    .Top #Search {
-        margin-top: 70px;
-        margin-left: 150px;
-        display: inline-block;
-        width: 500px;
+        .top-menu ul li:first-child {
+            border-left: none;
+        }
+
+        .top-menu ul li:last-child {
+            border-left: 1px solid #065158;
+        }
+
+        .top-menu ul li a {
+            display: block;
+            padding: 20px;
+            color: #61D3D8;
+            font-size: 15px;
+        }
+
+    .top-menu li.active a,
+    .top-menu li a:hover {
+        background: #16A2A2 url('Images/pointer1.png') no-repeat 54px 0;
+        color: white;
     }
 
-        .Top #Search #search {
-            width: 330px;
-            height: 40px;
+    .top-menu #inputSearch {
+        height: 35px;
+        width: 300px;
+        margin-top: 12px;
+        margin-left: 60px;
+    }
+
+/*-----Menu-----*/
+
+
+
+/*-----Carousel-----*/
+
+#carousel-generic {
+    width: 930px;
+}
+
+    #carousel-generic .item img {
+        margin-left: 10%;
+        height: 300px;
+        max-width: 500px;
+    }
+
+.carousel-indicators .ol{
+    color: #118085 !important;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    font-family: Roboto-Light;
+}
+
+.hotelName {
+    font-family: Roboto-Bold;
+    font-size: 30px;
+}
+
+
+/*-----Carousel-----*/
+
+
+/*-----Left-----*/
+.city {
+    width: 20%;
+    background-color: #424242;
+    height: 550px;
+    padding-top: 10px;
+    padding-left: 30px;
+    display: inline-block;
+}
+
+    .city h3 {
+        font-family: Roboto-Bold;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .city li {
+        display: inherit;
+        margin-left: 20px;
+    }
+
+        .city li a {
+            color: #fff;
+            font-size: 15px;
+            line-height: 2;
+            font-family: Roboto-MediumItalic;
         }
 
-        .Top #Search #btnSearch {
-            margin-left: 30px;
-            height: 40px;
-            width: 150px;
-            border: none;
-            background-color: #ff9c00;
-            font-family: Arial;
-            text-align: center;
-            font-size: 25px;
-            
-        }
+            .city li a:hover {
+                color: #0B6F74;
+                text-decoration: none;
+            }
+
+
+
+/*-----Center-----*/
+.topHotel {
+    border: 1px solid;
+    width: 79%;
+    min-height: 550px;;
+    display: inline-block;
+    float: right;
+}
+
+
+/*-----footer-----*/
+.footer {
+    background-color: #424242;
+    height: 150px;
+    width: 960px;
+    color: white;
+}
+
+    .footer img {
+        margin-left: 40%;
+        height: 150px;
+    }

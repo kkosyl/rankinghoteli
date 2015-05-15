@@ -3,57 +3,153 @@
     ViewBag.Title = "Ranking Hoteli";
 }
 
-<h2>Spis</h2>
+<div id="carousel-generic" class="carousel slide">
 
-@Html.ActionLink("Dodaj", "AddHotel")
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-generic" data-slide-to="4"></li>
+    </ol>
 
-<div class="table">
-    <table>
-        <tr>
-            <th>
-                Zdjęcie
-            </th>
-            <th>
-                Nazwa Hotelu
-            </th>
-            <th>
-                Adres
-            </th>
-            <th>
-                Opis
-            </th>
-            <th>
-                Cena
-            </th>
-            <th>
-                Opcje
-            </th>
-        </tr>
-        @if (Model != null)
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <img src="~/Content/Photos/@item.Picture" style="height: 150px"/>
-                    </td>
-                    <td>
-                        @Html.ActionLink(item.Name, "Details", new { id = item.HotelId})
-                    </td>
-                    <td>
-                        @item.Address
-                    </td>
-                    <td>
-                        @item.Description
-                    </td>
-                    <td>
-                        @item.Price
-                    </td>
-                    <td>
-                        @Html.ActionLink("Usuń", "Delete", new { id = item.HotelId })
-                    </td>
-                </tr>
-            }
-        }
-    </table>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/Content/Photos/free_8026505.jpg" />
+            <!-- Opis slajdu -->
+            <div class="carousel-caption">
+                <span class="hotelName">To jest opis</span>
+                <p>pierwszego slajdu</p>
+            </div>
+        </div>
+
+        <div class="item">
+
+            <img src="~/Content/Photos/hollywood-hotel-building-former-converted-office-space-downtown-california-usa-38643851.jpg" />
+            <!-- Opis slajdu -->
+            <div class="carousel-caption">
+                <span class="hotelName">To jest opis</span>
+                <p>drugiego slajdu</p>
+            </div>
+        </div>
+
+        <div class="item">
+
+            <img src="~/Content/Photos/planet-hollywood-hotel-las-vegas-13429729.jpg" />
+            <!-- Opis slajdu -->
+            <div class="carousel-caption">
+                <span class="hotelName">To jest opis</span>
+                <p>trzeciego slajdu</p>
+            </div>
+        </div>
+
+        <div class="item">
+
+            <img src="~/Content/Photos/Florida-Hotel-Exteriror-Shot-Pool.jpg" />
+            <!-- Opis slajdu -->
+            <div class="carousel-caption">
+                <span class="hotelName">To jest opis</span>
+                <p>trzeciego slajdu</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="http://placehold.it/1280x500" alt="">
+            <!-- Opis slajdu -->
+            <div class="carousel-caption">
+                <span class="hotelName">To jest opis</span>
+                <p>trzeciego slajdu</p>
+            </div>
+        </div>
+    </div>
+
+
+    <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+
 </div>
+<hr />
+
+<div class="city">
+
+    <h3>Polska:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Kraków</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li>
+
+    <h3>Świat:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Egipt</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Włochy</a></li>
+
+</div>
+
+
+
+<div class="topHotel">
+
+
+</div>
+
+
+
+
+
+@*<h2>Spis</h2>
+
+    @Html.ActionLink("Dodaj", "AddHotel")
+
+    <div class="table">
+        <table>
+            <tr>
+                <th>
+                    Zdjęcie
+                </th>
+                <th>
+                    Nazwa Hotelu
+                </th>
+                <th>
+                    Adres
+                </th>
+                <th>
+                    Opis
+                </th>
+                <th>
+                    Cena
+                </th>
+                <th>
+                    Opcje
+                </th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Content/Photos/@item.Picture" style="height: 150px"/>
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Name, "Details", new { id = item.HotelId})
+                        </td>
+                        <td>
+                            @item.Address
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            @Html.ActionLink("Usuń", "Delete", new { id = item.HotelId })
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>*@
