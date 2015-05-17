@@ -34,7 +34,6 @@
         </div>
 
         <div class="item">
-
             <img src="~/Content/Photos/planet-hollywood-hotel-las-vegas-13429729.jpg" />
             <!-- Opis slajdu -->
             <div class="carousel-caption">
@@ -72,7 +71,6 @@
     </a>
 
 </div>
-<hr />
 
 <div class="city">
 
@@ -90,8 +88,12 @@
 
 
 
-<div class="topHotel">
-
+<div class="mid">
+    @for (int i = 0; i < 10; i++ )
+    {<div id="midHotel">
+         <a href="#"><span class="hotelName">Nazwa hotelu @i</span></a> 
+    </div>
+    }
 
 </div>
 
