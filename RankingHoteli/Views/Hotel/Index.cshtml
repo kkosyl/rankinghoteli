@@ -89,12 +89,18 @@
 
 
 <div class="mid">
-    @for (int i = 0; i < 10; i++ )
-    {<div id="midHotel">
-         <a href="#"><span class="hotelName">Nazwa hotelu @i</span></a> 
-    </div>
+    @foreach (var item in @Model)
+    {
+        <div id="midHotel">
+            <a href="#">
+                <img src="~/Content/Photos/@item.Picture" />
+                <p>
+                    <span class="hotelName">@item.Name</span><br />
+                    @item.Address
+                </p>
+            </a>
+        </div>
     }
-
 </div>
 
 

@@ -140,7 +140,7 @@ html, body {
         max-width: 500px;
     }
 
-.carousel-indicators .ol{
+.carousel-indicators .ol {
     color: #118085 !important;
 }
 
@@ -198,22 +198,40 @@ html, body {
 /*-----Center-----*/
 .mid {
     width: 75%;
-    min-height: 550px;;
+    min-height: 550px;
     display: inline-block;
     float: right;
 }
 
     .mid #midHotel {
-        height: 100px;
+        height: 120px;
         width: 95%;
         border-bottom: 1px rgba(22, 162, 162, 0.48) solid;
+        display: inline-block;
     }
+
+        .mid #midHotel p {
+            color: black;
+            display: inline-block;
+        }
+
+        .mid #midHotel img {
+            height: 99px;
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .mid #midHotel .hotelName {
+            font-size: 20px;
+            display: inline-block;
+        }
 
         .mid #midHotel a:hover {
             display: block;
             width: 100%;
             height: 100%;
-            background: #76d7e0;
+            background: rgba(22, 162, 162, 0.22);
             text-decoration: none;
         }
 
